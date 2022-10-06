@@ -12,9 +12,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
-            <th>Address</th>
+<!--            <th>Address</th>-->
         </tr>
     </thead>
 <!--    <tr th:each="event : ${events}">-->
@@ -22,9 +23,10 @@
 <!--    </tr>-->
     <th:block>
         <tr th:each="event : ${events}">
-            <td th:text="${event.key}"></td>
-            <td th:text="${event.value}"></td>
-            <td th:replace="fragments :: address"></td>
+            <td th:text="${event.id}"></td>
+            <td th:text="${event.name}"></td>
+            <td th:text="${event.description}"></td>
+<!--            <td th:replace="fragments :: address"></td>-->
         </tr>
     </th:block>
 </table>
