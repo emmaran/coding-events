@@ -1,14 +1,21 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
+
+//    private static int nextId = 1;
 
     @NotBlank(message = "Name is required.")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
@@ -21,20 +28,31 @@ public class Event {
     @NotBlank(message = "Email is required.")
     private String contactEmail;
 
+//    @NotBlank(message = "Location cannot be left blank.")
+//    private String location;
+
+//    @AssertTrue
+//    private boolean registrationStatus;
+
+//    @Positive(message = "Number of attendees must be one or more.")
+//    private int numberOfAttendees;
+
     private EventType type;
 
-    public Event(String name, String description, String contactEmail, EventType type) {
-        this();
+    public Event(String name, String description, String contactEmail,
+//                 String location, boolean registrationStatus, int numberOfAttendees,
+                 EventType type) {
+//        this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+//        this.location = location;
+//        this.registrationStatus = registrationStatus;
+//        this.numberOfAttendees = numberOfAttendees;
         this.type = type;
     }
 
-    public Event() {
-        this.id = nextId;
-        nextId++;
-    }
+    public Event() {}
 
     public String getName() {
         return name;
@@ -59,6 +77,30 @@ public class Event {
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
     }
+
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+
+//    public boolean getRegistrationStatus() {
+//        return registrationStatus;
+//    }
+//
+//    public void setRegistrationStatus(boolean registrationStatus) {
+//        this.registrationStatus = registrationStatus;
+//    }
+//
+//    public int getNumberOfAttendees() {
+//        return numberOfAttendees;
+//    }
+//
+//    public void setNumberOfAttendees(int numberOfAttendees) {
+//        this.numberOfAttendees = numberOfAttendees;
+//    }
 
     public EventType getType() {
         return type;
