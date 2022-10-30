@@ -42,6 +42,7 @@ public class EventController {
 //        events.put("Menteaship","A fun meetup for connecting with mentors");
 //        events.put("Code With Pride","A fun meetup sponsored by LaunchCode");
 //        events.put("Javascripty", "An imaginary meetup for Javascript developers");
+        model.addAttribute("title", "All Events");
         model.addAttribute("events", eventRepository.findAll());
         return "events/index";
 
@@ -50,6 +51,7 @@ public class EventController {
     //lives at /events/create
     @GetMapping("create")
     public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         model.addAttribute(new Event());
         model.addAttribute("types", EventType.values());
         return "events/create";
@@ -71,7 +73,7 @@ public class EventController {
     //lives at events/delete
     @GetMapping("delete")
     public String renderDeleteEventForm(Model model) {
-        model.addAttribute("title", "Delete Event");
+        model.addAttribute("title", "Delete Events");
         model.addAttribute("events", eventRepository.findAll());
         return "events/delete";
     }
